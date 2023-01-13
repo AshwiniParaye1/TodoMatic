@@ -2,7 +2,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { addTodos } from "../redux/reducer"
-import { GoPlus } from "react-icons/go"
+import { GoPlus } from "react-icons/go";
+
 
 const mapStateToProps = (state) => {
   return {
@@ -16,13 +17,18 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+
 class Todos extends Component {
+
   state = {
     todo: ""
-  }
+
+  } 
+
   handleChange = (e) => {
     this.setState({ todo: e.target.value })
-  }
+    }
+   
   add = () => {
     if (this.state.todo === "") {
       alert("Input is Empty")
@@ -30,11 +36,16 @@ class Todos extends Component {
       this.props.addTodo({
         id: Math.floor(Math.random() * 1000),
         item: this.state.todo,
-        completed: false
-      })
+        completed: false,
+        })
       this.setState({ todo: "" })
+     
     }
+
   }
+
+
+
   render(props) {
     return (
       <div className="addTodos">
